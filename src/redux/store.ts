@@ -9,6 +9,10 @@ export const makeStore = () => {
       user: userReducer,
       recipes: recipesReducer,
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
   });
 };
 
