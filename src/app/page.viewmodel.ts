@@ -2,9 +2,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../redux/store";
 import { fetchRecipes } from "../redux/slices/recipes.slice";
-import { IRecipeRepository } from "../domains/models/recipe.interface";
 
-export const useRecipesViewModel = ({ recipeRepository }: { recipeRepository: IRecipeRepository }) => {
+export const useRecipesViewModel = () => {
   const dispatch: AppDispatch = useDispatch();
   const recipes = useSelector((state: RootState) => state.recipes.recipes);
   const recipeStatus = useSelector((state: RootState) => state.recipes.status);
