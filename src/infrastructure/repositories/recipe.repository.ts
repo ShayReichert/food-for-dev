@@ -10,6 +10,20 @@ export class RecipeRepository implements IRecipeRepository {
 
   async getAllRecipes(): Promise<Recipe[]> {
     const recipesData = await this.recipeGateway.fetchRecipes();
-    return recipesData.map((recipe) => new Recipe(recipe.id, recipe.name, recipe.ingredients, recipe.instructions, recipe.nutriscore));
+    return recipesData.map(
+      (recipe) =>
+        new Recipe(
+          recipe.id,
+          recipe.name,
+          recipe.ingredients,
+          recipe.instructions,
+          recipe.nutriscore,
+          recipe.imageUrl,
+          recipe.rating,
+          recipe.time,
+          recipe.isFavorited,
+          recipe.isPopular
+        )
+    );
   }
 }
