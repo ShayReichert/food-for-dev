@@ -15,14 +15,16 @@ export class RecipeRepository implements IRecipeRepository {
         new Recipe(
           recipe.id,
           recipe.name,
-          recipe.ingredients,
-          recipe.instructions,
-          recipe.nutriscore,
-          recipe.imageUrl,
           recipe.rating,
-          recipe.time,
-          recipe.isFavorited,
-          recipe.isPopular
+          recipe.total_time,
+          recipe.cook_time,
+          recipe.preparation_time,
+          recipe.pause_time,
+          recipe.difficulty,
+          recipe.cost,
+          recipe.nb_personne,
+          recipe.nb_commentary,
+          recipe.category_id
         )
     );
   }

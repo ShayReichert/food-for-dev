@@ -1,14 +1,18 @@
 import { useState } from "react";
 
 interface Recipe {
-  id: string;
+  id: number;
   name: string;
-  instructions: string;
-  nutriscore: string;
-  imageUrl: string;
   rating: number;
-  time: string;
-  isFavorited: boolean;
+  total_time: number;
+  cook_time: number;
+  preparation_time: number;
+  pause_time: number;
+  difficulty: string;
+  cost: string;
+  nb_personne: number;
+  nb_commentary: number;
+  category_id: number;
 }
 
 interface RecipeProps {
@@ -16,7 +20,8 @@ interface RecipeProps {
 }
 
 const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
-  const [isFavorited, setIsFavorited] = useState(recipe.isFavorited);
+  // const [isFavorited, setIsFavorited] = useState(recipe.isFavorited);
+  const [isFavorited, setIsFavorited] = useState(false);
   const handleFavoriteClick = () => {
     setIsFavorited(!isFavorited);
     // Add logic to save state to the backend
@@ -25,7 +30,7 @@ const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
   return (
     <li key={recipe.id} className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden">
       <div className="relative h-0 pb-[60%]">
-        <img src={recipe.imageUrl} alt={recipe.name} className="absolute top-0 w-full h-full object-cover rounded-t-lg" />
+        {/* <img src={recipe.imageUrl} alt={recipe.name} className="absolute top-0 w-full h-full object-cover rounded-t-lg" /> */}
       </div>
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
@@ -44,7 +49,7 @@ const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
           </span>
         </div>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-gray-500">{recipe.time} min</span>
+          <span className="text-gray-500">{recipe.preparation_time} min</span>
           <button className={`text-red-500 hover:text-red-600 ${isFavorited ? "fill-current" : "stroke-current"}`} onClick={handleFavoriteClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
