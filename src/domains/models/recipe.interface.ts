@@ -1,9 +1,9 @@
 import { Recipe } from "../../domains/entities/recipe.entity";
 
 export interface IRecipeRepository {
-  getAllRecipes(): Promise<Recipe[]>;
+  getAllRecipes(categoryId: number): Promise<Recipe[]>;
 }
 
 export interface IRecipeGateway {
-  fetchRecipes(): Promise<any[]>;
+  fetchRecipes(categoryId: number): Promise<any[]>;
 }

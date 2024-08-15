@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCarouselViewModel } from "./carousel.viewmodel";
 
 interface Recipe {
   id: string;
@@ -11,15 +11,7 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ recipes }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrevClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? recipes.length - 1 : prevIndex - 1));
-  };
-
-  const handleNextClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === recipes.length - 1 ? 0 : prevIndex + 1));
-  };
+  const { currentIndex, handlePrevClick, handleNextClick, handleIndicatorClick } = useCarouselViewModel(recipes);
 
   return (
     <div id="carousel" className="relative px-8 bg-gray-100" data-twe-carousel-init data-twe-ride="carousel">
@@ -34,7 +26,7 @@ const Carousel: React.FC<CarouselProps> = ({ recipes }) => {
               index === currentIndex ? "opacity-100" : ""
             }`}
             aria-label={`Slide ${index + 1}`}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => handleIndicatorClick(index)}
           ></button>
         ))}
       </div>

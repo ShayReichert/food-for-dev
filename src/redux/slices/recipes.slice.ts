@@ -20,8 +20,8 @@ const initialState: RecipesState = {
   error: null,
 };
 
-export const fetchRecipes = createAsyncThunk("recipes/fetchRecipes", async () => {
-  return await getRecipes(recipeRepository);
+export const fetchRecipes = createAsyncThunk("recipes/fetchRecipes", async (categoryId: number) => {
+  return await getRecipes(recipeRepository, categoryId);
 });
 
 const recipesSlice = createSlice({

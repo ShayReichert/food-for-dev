@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRecipeCardViewModel } from "./recipeCard.viewmodel";
 
 interface Recipe {
   id: number;
@@ -20,12 +20,7 @@ interface RecipeProps {
 }
 
 const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
-  // const [isFavorited, setIsFavorited] = useState(recipe.isFavorited);
-  const [isFavorited, setIsFavorited] = useState(false);
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
-    // Add logic to save state to the backend
-  };
+  const { isFavorited, handleFavoriteClick } = useRecipeCardViewModel(false);
 
   return (
     <li key={recipe.id} className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden">
@@ -34,7 +29,8 @@ const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
       </div>
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-xl font-semibold truncate w-3/4">{recipe.name}</h2>
+          <h2 className="font-semibold truncate w-3/4 capitalize">{recipe.name}</h2>
+          <h3 className="font-semibold truncate w-3/4 capitalize">{recipe.category_id}</h3>
           <span className="flex items-center text-gray-700 whitespace-nowrap">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +45,7 @@ const RecipeCard: React.FC<RecipeProps> = ({ recipe }) => {
           </span>
         </div>
         <div className="flex justify-between items-center mb-4">
-          <span className="text-gray-500">{recipe.preparation_time} min</span>
+          <span className="text-gray-500">{recipe.total_time} min</span>
           <button className={`text-red-500 hover:text-red-600 ${isFavorited ? "fill-current" : "stroke-current"}`} onClick={handleFavoriteClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

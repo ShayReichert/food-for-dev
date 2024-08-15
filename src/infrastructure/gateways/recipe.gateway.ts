@@ -5,9 +5,9 @@ import axios from "axios";
 const baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 export class RecipeGateway implements IRecipeGateway {
-  async fetchRecipes(): Promise<Recipe[]> {
+  async fetchRecipes(categoryId: number): Promise<Recipe[]> {
     try {
-      const response = await axios.get(`${baseURL}/recipes/category/2?page=1&size=50`); // Remplacez par une catégorie dynamique
+      const response = await axios.get(`${baseURL}/recipes/category/${categoryId}?page=1&size=50`);
       const recipesData = response.data.items;
 
       return recipesData.map(
