@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../domains/entities/user.entity";
+import { IUserGateway } from "../../domains/models/user.interface";
 import { getUserProfile } from "../../domains/usecases/getUserProfile.usecase";
 import { updateUserProfile } from "../../domains/usecases/updateUserProfile.usecase";
-import { IUserGateway } from "../../domains/models/user.interface";
 import { UserGateway } from "../../infrastructure/gateways/user.gateway";
 import { UserRepository } from "../../infrastructure/repositories/user.repository";
 

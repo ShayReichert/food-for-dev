@@ -1,5 +1,5 @@
-import { IRecipeGateway, IRecipeRepository } from "@/domains/models/recipe.interface";
 import { Recipe } from "@/domains/entities/recipe.entity";
+import { IRecipeGateway, IRecipeRepository } from "@/domains/models/recipe.interface";
 
 export class RecipeRepository implements IRecipeRepository {
   private recipeGateway: IRecipeGateway;

@@ -1,7 +1,7 @@
-import userReducer from "./slices/user.slice";
+import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import recipesReducer from "./slices/recipes.slice";
-import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./slices/user.slice";
 
 export const makeStore = () => {
   return configureStore({

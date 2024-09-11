@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchRecipes } from "../redux/slices/recipes.slice";
+import { AppDispatch, RootState } from "../redux/store";
 
 export const useRecipesViewModel = () => {
   const dispatch: AppDispatch = useDispatch();

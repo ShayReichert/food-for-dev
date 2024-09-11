@@ -1,6 +1,5 @@
-import { IUserRepository } from "../../domains/models/user.interface";
-import { IUserGateway } from "../../domains/models/user.interface";
 import { User } from "../../domains/entities/user.entity";
+import { IUserGateway, IUserRepository } from "../../domains/models/user.interface";
 
 export class UserRepository implements IUserRepository {
   private userGateway: IUserGateway;

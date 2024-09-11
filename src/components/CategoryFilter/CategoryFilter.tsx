@@ -1,5 +1,5 @@
-import { useCategoryFilterViewModel } from "./categoryFilter.viewmodel";
 import { ICategoryGateway } from "@/infrastructure/gateways/category.gateway";
+import { useCategoryFilterViewModel } from "./categoryFilter.viewmodel";
 
 interface CategoryFilterProps {
   categoryGateway: ICategoryGateway;

@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Recipe } from "../../domains/entities/recipe.entity";
-import { getRecipes } from "../../domains/usecases/getRecipes.usecase";
-import { IRecipeGateway } from "../../domains/models/recipe.interface";
 import { RecipeGateway } from "@/infrastructure/gateways/recipe.gateway";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Recipe } from "../../domains/entities/recipe.entity";
+import { IRecipeGateway } from "../../domains/models/recipe.interface";
+import { getRecipes } from "../../domains/usecases/getRecipes.usecase";
 import { RecipeRepository } from "../../infrastructure/repositories/recipe.repository";
 
 const recipeGateway: IRecipeGateway = new RecipeGateway();

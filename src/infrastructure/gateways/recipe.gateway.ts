@@ -1,5 +1,5 @@
-import { IRecipeGateway } from "@/domains/models/recipe.interface";
 import { Recipe } from "@/domains/entities/recipe.entity";
+import { IRecipeGateway } from "@/domains/models/recipe.interface";
 import axios from "axios";
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL;

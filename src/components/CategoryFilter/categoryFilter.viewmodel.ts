@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { ICategoryGateway } from "@/infrastructure/gateways/category.gateway";
+import { useEffect, useState } from "react";
 
 export const useCategoryFilterViewModel = (categoryGateway: ICategoryGateway, onSelectCategory: (categoryId: number) => void) => {
   const [categories, setCategories] = useState<{ id: number; name: string }[]>([]);

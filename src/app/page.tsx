@@ -1,12 +1,12 @@
 "use client";
 
+import CategoryFilter from "@/components/CategoryFilter/CategoryFilter";
+import RecipeCard from "@/components/RecipeCard/RecipeCard";
+import RecipeCardSkeleton from "@/components/RecipeCard/RecipeCardSkeleton";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import Carousel from "../components/Carousel/Carousel";
 import container from "../di/container";
 import { Recipe } from "../domains/entities/recipe.entity";
-import Carousel from "../components/Carousel/Carousel";
-import RecipeCard from "@/components/RecipeCard/RecipeCard";
-import SearchBar from "@/components/SearchBar/SearchBar";
-import CategoryFilter from "@/components/CategoryFilter/CategoryFilter";
-import RecipeCardSkeleton from "@/components/RecipeCard/RecipeCardSkeleton";
 
 export default function Home() {
   const { recipes, popularRecipes, recipeStatus, recipeError, query, setQuery, setCategoryId } = container.resolve("useRecipesViewModel");
